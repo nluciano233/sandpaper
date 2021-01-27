@@ -1,3 +1,3 @@
-# sandpaper
+# Sandpaper
 
-Lavatrice function works only once over an interval of time
+Useless Discord bot.
