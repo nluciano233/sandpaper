@@ -49,7 +49,7 @@ bot.message() do |event|
 end
 
 bot.message(content: '/sleeping') do |event|
-  event.respond "Sleeping list: #{sleeping.join(', ')"
+  event.respond "Sleeping list: #{sleeping.join(', ')}"
 end
 
 bot.run
