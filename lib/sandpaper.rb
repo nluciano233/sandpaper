@@ -37,14 +37,18 @@ bot.message() do |event|
       sleep 300
       sleeping.delete(event.author.username)
     end
-  elsif event.author.role?('803707745017659434') && event.author.id == 765140200438366209
-    if sleeping.index(event.author.username) == nil
-      event.respond "Carlo e' una brutta puttana"
-      sleeping.push(event.author.username)
-      sleep 300
-      sleeping.delete(event.author.username)
-    end
+  #elsif event.author.role?('803707745017659434') && event.author.id == 765140200438366209
+  #  if sleeping.index(event.author.username) == nil
+  #    event.respond "Carlo e' una brutta puttana"
+  #    sleeping.push(event.author.username)
+  #    sleep 300
+  #    sleeping.delete(event.author.username)
+  #  end
   end
+end
+
+bot.message(content: '/sleeping') do |event|
+  event.respond "Sleeping list: #{sleeping.join(', ')"
 end
 
 bot.run
