@@ -1,1 +1,1 @@
-worker: ruby sandpaper.rb
+worker: ruby /lib/sandpaper.rb
