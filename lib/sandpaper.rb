@@ -9,7 +9,8 @@ bot.message() do |event|
       event.respond 'My name is Sandpaper, I am still under development. Accepting commands only from: Dopamiine.
 Command list:```
 /test-sandpaper
-/sandpaper-id```'
+/sandpaper-id
+/sleeping```'
   end
 end
 
