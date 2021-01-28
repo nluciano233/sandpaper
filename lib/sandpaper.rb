@@ -52,5 +52,9 @@ bot.message(content: '/sleeping') do |event|
   event.respond "Sleeping list: #{sleeping.join(', ')}"
 end
 
+bot.message(content: '/annoy') do |event|
+  bot.voice_connect(700393476210163772)
+end
+
 bot.run
 
