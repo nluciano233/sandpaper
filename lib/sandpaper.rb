@@ -6,7 +6,7 @@ bot = Discordrb::Bot.new token: ENV['TOKEN']
 
 bot.message() do |event|
     if event.message.content.casecmp('sandpaper') == 0
-      event.respond 'My name is Sandpaper, I am still under development. Accepting commands only from: Dopamiine.
+      event.respond 'My name is Sandpaper, I am still under development.
 Command list:```
 /test-sandpaper
 /sandpaper-id
@@ -15,19 +15,19 @@ Command list:```
 end
 
 bot.message(content: '/test-sandpaper') do |event|
-  if event.author.id == 765140200438366209
+  #if event.author.id == 765140200438366209
     event.respond "It's working"
-  else
-    event.respond "Fuck you"
-  end
+  #else
+  #  event.respond "Fuck you"
+  #end
 end
 
 bot.message(content: '/sandpaper-id') do |event|
-  if event.author.id == 765140200438366209
+  #if event.author.id == 765140200438366209
     event.respond "Your ID is #{event.author.id} and your username is #{event.author.username}"
-  else
-    event.respond event.author.username + " is a dumb fuck"
-  end
+  #else
+  #  event.respond event.author.username + " is a dumb fuck"
+  #end
 end
 
 bot.message() do |event|
