@@ -1,5 +1,6 @@
 require 'dotenv/load'
 require 'discordrb'
+require 'tts'
 
 sleeping = []
 bot = Discordrb::Bot.new token: ENV['TOKEN']
@@ -56,6 +57,15 @@ end
 bot.message(content: '/annoy') do |event|
   bot.voice_connect(700393476210163772)
 end
+
+bot.message(content: '/speak') do |event|
+  "hello".to_file "it"
+  event.respond "1"
+  voice_bot = event.voice
+  voice_bot.play_file('hello.mp3')
+end
+
+
 
 bot.run
 

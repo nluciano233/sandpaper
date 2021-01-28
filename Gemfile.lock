@@ -28,6 +28,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    tts (0.8.2)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
@@ -42,6 +43,7 @@ PLATFORMS
 DEPENDENCIES
   discordrb
   dotenv
+  tts (~> 0.8.2)
 
 BUNDLED WITH
    2.2.6
