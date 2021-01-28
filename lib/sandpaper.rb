@@ -3,6 +3,7 @@ require 'discordrb'
 
 sleeping = []
 bot = Discordrb::Bot.new token: ENV['TOKEN']
+bot.send_message(803178831330148413, 'Updated!')
 
 bot.message() do |event|
     if event.message.content.casecmp('sandpaper') == 0
