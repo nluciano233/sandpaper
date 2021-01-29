@@ -73,9 +73,14 @@ end
 
 
 bot.command :timer do |event, args|
-  sleeping = []
-  timer = args.to_i
-  event.respond "Lavatrice timer set to #{timer}"
+  if args == nil
+    event.respond "This command sets the timer for Lavatrice.
+Use it like `/timer 60`. The value is in seconds."
+  else
+    sleeping = []
+    timer = args.to_i
+    event.respond "Lavatrice timer set to #{timer}"
+  end
 end
 
 bot.command :ts do |event, args|
@@ -85,9 +90,9 @@ bot.command :ts do |event, args|
   elsif args == "false"
     tts = false
     event.respond "Lavatrice text to speech set to false"
-  elsif args == ""
+  elsif args == nil
     event.respond "This command activates text-to-speech for Lavatrice.
-User it like `/ts true` or `/ts false`"
+Use it like `/ts true` or `/ts false`"
   else
     event.respond "Text to speech value can only be true/false"
   end
