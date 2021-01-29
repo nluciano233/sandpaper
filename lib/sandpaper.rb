@@ -34,7 +34,7 @@ end
 bot.message() do |event|
   if event.author.role?('803707745017659434')
     if sleeping.index(event.author.username) == nil
-      event.respond bot.send_message("Donna schiava zitta e lava", tts = true)
+      event.respond bot.send_message(event.channel, "Donna schiava zitta e lava", tts = true)
       sleeping.push(event.author.username)
       sleep 300
       sleeping.delete(event.author.username)
