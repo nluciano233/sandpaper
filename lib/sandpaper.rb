@@ -3,7 +3,7 @@ require 'discordrb'
 
 sleeping = []
 #bot = Discordrb::Bot.new token: ENV['TOKEN']
-bot = Discordrb::Commands::CommandBot.new token: ENV['TOKEN'], prefix: '/'
+bot = Discordrb::Commands::CommandBot.new token: ENV['TOKEN'], prefix: '!'
 bot.send_message(803178831330148413, 'Updated!')
 
 tts = false
@@ -13,33 +13,25 @@ bot.message() do |event|
     if event.message.content.casecmp('sandpaper') == 0
       event.respond 'My name is Sandpaper, I am still under development.
 Command list:```
-/test-sandpaper
-/sandpaper-id
-/sleeping
-/timer <value in seconds>
-/ts <true/false>
-/annoy```'
+!test
+!id
+!sleeping
+!timer <value in seconds>
+!ts <true/false>
+!annoy```'
   end
 end
 
-bot.message(content: '/test-sandpaper') do |event|
-  #if event.author.id == 765140200438366209
-    event.respond "It's working"
-  #else
-  #  event.respond "Fuck you"
-  #end
+bot.command :test do |event|
+  event.respond "It's working"
 end
 
-bot.message(content: '/sandpaper-id') do |event|
-  #if event.author.id == 765140200438366209
-    event.respond "Your ID is #{event.author.id} and your username is #{event.author.username}"
-  #else
-  #  event.respond event.author.username + " is a dumb fuck"
-  #end
+bot.command :id do |event|
+  event.respond "Your ID is #{event.author.id} and your username is #{event.author.username}"
 end
 
 bot.message() do |event|
-  if event.author.role?('803707745017659434') && event.message.content.start_with?('/') == false
+  if event.author.role?('803707745017659434') && event.message.content.start_with?('!') == false && event.message.content == 'sandpaper'
     if sleeping.index(event.author.username) == nil
       bot.send_message(event.channel, "Donna schiava zitta e lava", tts)
       sleeping.push(event.author.username)
