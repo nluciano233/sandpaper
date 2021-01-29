@@ -66,8 +66,7 @@ bot.message(content: '/speak') do |event|
 end
 =end
 
-puts "insert variable"
-name = gets
+
 
 
 bot.run
