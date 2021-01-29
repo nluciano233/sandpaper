@@ -1,6 +1,5 @@
 require 'dotenv/load'
 require 'discordrb'
-require 'tts'
 
 sleeping = []
 bot = Discordrb::Bot.new token: ENV['TOKEN']
@@ -33,9 +32,9 @@ bot.message(content: '/sandpaper-id') do |event|
 end
 
 bot.message() do |event|
-  if event.author.role?('803707745017659434') && event.author.id != 765140200438366209
+  if event.author.role?('803707745017659434')
     if sleeping.index(event.author.username) == nil
-      event.respond "Donna schiava zitta e lava"
+      event.respond "/tts Donna schiava zitta e lava"
       sleeping.push(event.author.username)
       sleep 300
       sleeping.delete(event.author.username)
@@ -58,13 +57,14 @@ bot.message(content: '/annoy') do |event|
   bot.voice_connect(700393476210163772)
 end
 
+=begin
 bot.message(content: '/speak') do |event|
   "hello".to_file "it"
   event.respond "1"
   voice_bot = event.voice
-  voice_bot.play_file('hello.mp3')
+  voice_bot.play_file('hello')
 end
-
+=end
 
 
 bot.run
