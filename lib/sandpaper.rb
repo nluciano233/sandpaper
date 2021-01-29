@@ -59,7 +59,11 @@ end
 
 
 bot.command :annoy do |event|
-  bot.voice_connect(event.user.voice_channel.id)
+  if event.user.voice_channel.id == nil
+    event.respond "You have to be in a voice channel"
+  else
+    bot.voice_connect(event.user.voice_channel.id)
+  end
 end
 
 
