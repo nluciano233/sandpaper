@@ -85,6 +85,9 @@ bot.command :ts do |event, args|
   elsif args == "false"
     tts = false
     event.respond "Lavatrice text to speech set to false"
+  elsif args == ""
+    event.respond "This command activates text-to-speech for Lavatrice.
+User it like `/ts true` or `/ts false`"
   else
     event.respond "Text to speech value can only be true/false"
   end
