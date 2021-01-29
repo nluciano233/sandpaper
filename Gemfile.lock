@@ -42,7 +42,6 @@ PLATFORMS
 DEPENDENCIES
   discordrb
   dotenv
-  opus-ruby (~> 1.0, >= 1.0.1)
 
 BUNDLED WITH
    2.2.6

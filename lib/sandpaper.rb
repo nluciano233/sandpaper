@@ -1,6 +1,6 @@
 require 'dotenv/load'
 require 'discordrb'
-require 'opus-ruby'
+
 
 sleeping = []
 #bot = Discordrb::Bot.new token: ENV['TOKEN']
@@ -67,10 +67,13 @@ bot.command :annoy do |event|
   end  
 end
 
+=beginmmand :leave do |event|
+  event.bot.voices.keys
+end
 bot.command :leave do |event|
   event.bot.voices.keys
 end
-
+=end
 
 
 bot.command :timer do |event, args|
