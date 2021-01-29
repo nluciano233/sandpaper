@@ -8,9 +8,10 @@ channel = gets
 loop do 
   puts "message?"
   mess = gets
-  bot.send_message(channel, mess)
+  
+    bot.send_message(channel, mess)
+    
   end
-end
 
 
 bot.run
