@@ -9,7 +9,7 @@ loop do
   puts "message?"
   mess = gets
   
-    bot.send_message(channel, mess)
+    bot.send_message(channel, mess, tts = true)
     
   end
 
