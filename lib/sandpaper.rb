@@ -2,8 +2,12 @@ require 'dotenv/load'
 require 'discordrb'
 
 sleeping = []
-bot = Discordrb::Bot.new token: ENV['TOKEN']
+#bot = Discordrb::Bot.new token: ENV['TOKEN']
+bot = Discordrb::Commands::CommandBot.new token: ENV['TOKEN'], prefix: '/'
 bot.send_message(803178831330148413, 'Updated!')
+
+tts = false
+timer = 300
 
 bot.message() do |event|
     if event.message.content.casecmp('sandpaper') == 0
@@ -11,7 +15,10 @@ bot.message() do |event|
 Command list:```
 /test-sandpaper
 /sandpaper-id
-/sleeping```'
+/sleeping
+/timer <value in seconds>
+/ts <true/false>
+/annoy```'
   end
 end
 
@@ -32,11 +39,11 @@ bot.message(content: '/sandpaper-id') do |event|
 end
 
 bot.message() do |event|
-  if event.author.role?('803707745017659434')
+  if event.author.role?('803707745017659434') && event.message.content.start_with?('/') == false
     if sleeping.index(event.author.username) == nil
-      bot.send_message(event.channel, "Donna schiava zitta e lava", tts = true)
+      bot.send_message(event.channel, "Donna schiava zitta e lava", tts)
       sleeping.push(event.author.username)
-      sleep 300
+      sleep timer
       sleeping.delete(event.author.username)
     end
   #elsif event.author.role?('803707745017659434') && event.author.id == 765140200438366209
@@ -49,13 +56,40 @@ bot.message() do |event|
   end
 end
 
+=begin
 bot.message(content: '/sleeping') do |event|
   event.respond "Sleeping list: #{sleeping.join(', ')}"
 end
-
-bot.message(content: '/annoy') do |event|
-  bot.voice_connect(700393476210163772)
+=end
+bot.command :sleeping do |event|
+  event.respond "Sleeping list: #{sleeping.join(', ')}"
 end
+
+
+bot.command :annoy do |event|
+  bot.voice_connect(event.user.voice_channel.id)
+end
+
+
+
+bot.command :timer do |event, args|
+  sleeping = []
+  timer = args.to_i
+  event.respond "Lavatrice timer set to #{timer}"
+end
+
+bot.command :ts do |event, args|
+  if args == 'true'
+    tts = true
+    event.respond "Lavatrice text to speech set to true"
+  elsif args == "false"
+    tts = false
+    event.respond "Lavatrice text to speech set to false"
+  else
+    event.respond "Text to speech value can only be true/false"
+  end
+end
+
 
 =begin
 bot.message(content: '/speak') do |event|
