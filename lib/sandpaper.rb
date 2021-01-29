@@ -67,7 +67,8 @@ bot.command :annoy do |event|
   end  
 end
 
-=beginmmand :leave do |event|
+=begin
+bot.command :leave do |event|
   event.bot.voices.keys
 end
 bot.command :leave do |event|
