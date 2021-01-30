@@ -17,8 +17,8 @@ Command list:```
 .test
 .id
 .sleeping
-.timer <value in seconds>
-.ts <true/false>
+.timer
+.ts
 .annoy```'
   end
 end
