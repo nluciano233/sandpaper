@@ -1,0 +1,3 @@
+# Sandpaper
+
+Useless Discord bot.
