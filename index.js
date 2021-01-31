@@ -135,4 +135,3 @@ function play(guild, song) {
 }
 
 client.login(token);
-
