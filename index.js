@@ -11,7 +11,7 @@ const client = new Discord.Client();
 const queue = new Map();
 
 client.once("ready", () => {
-  console.log("Ready!");
+  client.channels.cache.get(`805394228464844810`).send(`Ready`)
 });
 
 client.once("reconnecting", () => {
