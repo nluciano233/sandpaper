@@ -1,3 +1,3 @@
 # Sandpaper
 
-Useless Discord bot.
+Music bot version in javascript
