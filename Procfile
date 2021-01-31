@@ -1,1 +1,1 @@
-worker: ruby lib/sandpaper.rb
+worker: node index.js
