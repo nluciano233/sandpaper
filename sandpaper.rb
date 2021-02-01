@@ -49,6 +49,7 @@ end
 bot.message() do |event|
   if event.author.role?('803707745017659434') && event.message.content.start_with?('.') == false && event.message.content != 'sandpaper'
     if sleeping.index(event.author.username) == nil
+      event.message.delete
       bot.send_message(event.channel, "Donna schiava zitta e lava", tts)
       sleeping.push(event.author.username)
       sleep timer
