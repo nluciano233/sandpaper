@@ -157,7 +157,9 @@ bot.message(content: '/speak') do |event|
 end
 =end
 
-
+bot.command :motivate do |event|
+  event.respond "https://www.youtube.com/watch?v=KxGRhd_iWuE"
+end
 
 
 bot.run
